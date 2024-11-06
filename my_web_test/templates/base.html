@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+	
+	<title>Jungar</title>
+	
+	{% load static %}
+
+	<link rel="shortcut icon" href="{% static 'assets/images/fv.png'%}">
+	
+
+	<!-- Bootstrap -->
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<!-- Icons -->
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<!-- Fonts -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alice|Open+Sans:400,300,700">
+	<!-- Custom styles -->
+	<link rel="stylesheet" href="{% static 'assets/css/styles.css'%}">
+
+	 <script src="{% static 'assets/js/html5shiv.js'%}"></script> 
+</head>
+<body class="home">
+
+<header id="header">
+	<div id="head" class="parallax" parallax-speed="2">
+		<h1 id="logo" class="text-center">
+			 <img class="img-circle" src="{% static 'assets/images/me.jpg'%}" alt="">
+			<span class="title spanheader" style ="color:#0058d8;font-family: fantasy;font-size: 150%;">Junior Garcia</span>
+			<span class="tagline " style ="color:#fffc63;font-family: fantasy;font-size: 100%;" <br>A disciplined person</br>
+				<a href="https://github.com/jungarcode" style ="color:#fffc63;">Jungarcode</a></span>
+		</h1>
+	</div>
+
+	<nav class="navbar navbar-default navbar-sticky">
+		<div class="container-fluid">
+			
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-bs-toggle="collapse" data-bs-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+			</div>
+			
+			<div class="navbar-collapse collapse"id="bs-example-navbar-collapse-1">
+				
+				<ul class="nav navbar-nav nav-side ">
+					<li class="{% if request.path == '/'%} active {%endif%}"><a  href="{% url 'web:index'%}">Home</a></li>
+					<li class="{% if request.path == '/about/'%}active{%endif%}"><a href="{% url 'web:about'%}">About</a></li>
+					<li class="{% if request.path == '/portfolio/'%}active{%endif%}"><a href="{% url 'web:portfolio'%}">Portfolio</a></li>
+					<li class="{% if request.path|slice:":6" == '/blog/'%}active{%endif%}"><a href="{% url 'web:blog'%}">Blog</a></li>
+				
+				</ul>
+			
+			</div><!--/.nav-collapse -->			
+		</div>	
+	</nav>
+</header>
+<!-- content -->
+{% block content %}
+
+{%endblock%}
+
+<footer id="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 widget">
+				<h3 class="widget-title">Contact</h3>
+				<div class="widget-body">
+					<p>+1 2142845797<br>
+						<a href="mailto:#">jungarcode@gmail.com</a><br>
+					</p>	
+				</div>
+			</div>
+
+			<div class="col-md-3 widget"style = "float: right;">
+				<h3 class="widget-title">Follow me</h3>
+				<div class="widget-body">
+					<p class="follow-me-icons">
+						<a href="https://github.com/jungarcode" target="_blank" ><i class="fa fa-github fa-2"></i></a>
+						<a href="https://www.linkedin.com/in/junior-garcia-39578ab3/"target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+						<a href="https://x.com/jungar2806" target="_blank"><i class="fa fa-twitter  aria-hidden="true"></i></a>
+						
+					</p>
+				</div>
+			</div>
+
+			{% comment %} <div class="col-md-3 widget">
+				<h3 class="widget-title">Text widget</h3>
+				<div class="widget-body">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, nihil natus explicabo ipsum quia iste aliquid repellat eveniet velit ipsa sunt libero sed aperiam id soluta officia asperiores adipisci maxime!</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, nihil natus explicabo ipsum quia iste aliquid repellat eveniet velit ipsa sunt libero sed aperiam id soluta officia asperiores adipisci maxime!</p>
+				</div>
+			</div> {% endcomment %}
+
+			{% comment %} <div class="col-md-3 widget">
+				<h3 class="widget-title">Form widget</h3>
+				<div class="widget-body">
+					<p>+234 23 9873237<br>
+						<a href="mailto:#">some.email@somewhere.com</a><br>
+						<br>
+						234 Hidden Pond Road, Ashland City, TN 37015
+					</p>	
+				</div>
+			</div> {% endcomment %}
+
+		</div> <!-- /row of widgets -->
+	</div>
+</footer>
+
+<footer id="underfooter">
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-md-6 widget">
+				<div class="widget-body">
+					<p>Bella Vista Carrollton, Dallas City, Tx </p>
+				</div>
+			</div>
+
+			<div class="col-md-6 widget">
+				<div class="widget-body">
+					<p class="text-right">
+						© 2024 Jungar, Inc. All rights reserved.
+						</p>
+				</div>
+			</div>
+
+		</div> <!-- /row of widgets -->
+	</div>
+</footer>
+
+
+
+<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="{% static 'assets/js/template.js'%}"></script>
+</body>
+</html>

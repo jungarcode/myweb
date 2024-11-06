@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+
+<main id="main">
+
+	<div class="container">
+
+		<div class="row topspace">
+			
+			<!-- Sidebar -->
+			{% comment %} <aside class="col-sm-4 sidebar sidebar-right">
+
+				<ul class="nav text-right nav-side">
+					<li class="active"><a href="#ui">UI design</a></li>
+					<li><a href="#frontend">Frontend development</a></li>
+					<li><a href="#backend">Backend development</a></li>
+					<li><a href="#projects">Side projects</a></li>
+				</ul>
+
+			</aside> {% endcomment %}
+			<!-- /Sidebar -->
+
+			<!-- Article main content -->
+	<div class="container-fluid">
+        <div id="about" class="row about-section">
+            <div class="col-lg-4 about-card">
+                <h3 class="font-weight-light">Who am I ?</h3>
+                <span class="line mb-5"></span>
+                <h5 class="mb-3">Mechanical Maintenance Engineer/ Developer/ Data Analyst</h5>
+                <p class="mt-20">8 years of experience in the industrial field, developing work procedures and analysis and evaluation of processes with the aim of improving the performance of equipment and machinery.</p>
+                <a href="\static\assets\cv\Autorizacion.docx" download="my_cv" ><button class="btn btn-action">Download My CV</button></a>
+            </div>
+            <div class="col-lg-4 about-card">
+                <h3 class="font-weight-light">Personal Info</h3>
+                <span class="line mb-5"></span>
+                <ul class="mt40 info list-unstyled">
+                    <li><span>Birthdate</span> : 02/00/1987</li>
+                    <li><span>Email</span> : jungarcode@gmail.com.com</li>
+                    <li><span>Phone</span> : + 1 2142845797</li>
+                    <li><span>github</span> : jungarcode </li>
+                    <li><span>Address</span> :  Houston Tx.</li>
+                </ul>
+                {% comment %} <ul class="social-icons pt-3">
+                    <li class="social-item"><a class="social-link" href="#"><i class="ti-facebook" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link" href="#"><i class="ti-twitter" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link" href="#"><i class="ti-google" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link" href="#"><i class="ti-instagram" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link" href="#"><i class="ti-github" aria-hidden="true"></i></a></li>
+                </ul>    {% endcomment %}
+            </div>
+            <div class="col-lg-4 about-card">
+                <h3 class="font-weight-light">My Expertise</h3>
+                <span class="line mb-5"></span>
+                <h6>Maintenance Operator/Service</h6>
+                <p class="subtitle">Routine equipment maintenance.</p>
+                <hr>
+                <h6>Maintenance Supervisor / Dairy Industry</h6>
+                <p class="subtitle">Planner and programmer of maintenance activities for equipment and machinery / fault analyst..</p>
+                <hr> 
+                <h6>Data Analyst / Retail Company</h6>
+                <p class="subtitle">Inventory management and product sales analysis.</p>
+                <hr>     
+            </div>
+        </div>
+    </div>
+    <hr style = "border-color:blue;">
+	<h1 class="entry-title"style = "color:red;">Contact  UNDER CONSTRUCTION</h1>
+	{% comment %} <div>
+		<form action="{% url 'web:about'%}" method="POST" >
+			{% csrf_token %}
+			
+			<!-- Name input -->
+			<div data-mdb-input-init class="form-outline mb-4" class="row mb-3">
+			<label class="form-label" for="form4Example1">Name</label>
+			{{form.name}}
+			</div>
+			{{form.name.errors}}
+			<!-- Email input -->
+			<div data-mdb-input-init class="form-outline mb-4" class="row mb-3">
+				<label class="form-label" for="form4Example2">Email address</label>
+				{{form.email}}
+			
+			</div>
+			{{form.email.errors}}
+			<!-- Message input -->
+			<div data-mdb-input-init class="form-outline mb-4" class="row mb-3">
+			
+			<label class="form-label" for="form4Example3">under construction</label>
+			{{form.contact}}
+			</div>
+			{{form.contact.errors}}
+			<!-- Submit button -->
+			<input type="submit" value="Send" />
+			{%if 'send' in request.GET%}	
+			<p><b>Message Send</b></p>
+			{%endif%}
+		</form> 
+	</div> {% endcomment %}
+
+			
+
+		</div>
+	</div>	<!-- /container -->
+	
+</main>
+
+
+{% endblock %}
