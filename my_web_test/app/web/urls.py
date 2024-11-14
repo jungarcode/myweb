@@ -7,4 +7,5 @@ urlpatterns = [
     path('blog/',blog,name='blog'),
     path('portfolio/',portfolio,name='portfolio'),
     path('<slug:slug>/',detailPost,name='detail_post'),
+
 ]

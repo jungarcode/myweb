@@ -5,105 +5,124 @@
 	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
-	
+
 	<title>jungar</title>
-	
+
 	{% load static %}
 
-	<link rel="shortcut icon" href="{% static 'assets/images/fv.png'%}">
-	
+		<link rel="shortcut icon" href="{% static 'assets/images/fv.png'%}">
+
 
 	<!-- Bootstrap -->
-	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<!--<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">-->
+	<!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+	<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>-->
 	<!-- Icons -->
-	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<!--<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 	<!-- Fonts -->
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alice|Open+Sans:400,300,700">
 	<!-- Custom styles -->
 	<link rel="stylesheet" href="{% static 'assets/css/styles.css'%}">
 
-	 <script src="{% static 'assets/js/html5shiv.js'%}"></script> 
+
 </head>
 <body class="home">
 
 <header id="header">
-	{% comment %} <div id="head" class="parallax" parallax-speed="2">
-		<h1 id="logo" class="text-center">
-			<img class="img-circle" src="{% static 'assets/images/guy.jpg'%}" alt="">
-			<span class="title">Junior Garcia</span>
-			<span class="tagline">A mystery person<br>
-				<a href="">Juniorgar2612@gmail.com</a></span>
-		</h1>
-	</div> {% endcomment %}
+    <div id="banner" class="banner">
+    	<div id="head" class="parallax" parallax-speed="2">
+    		<h1 id="logo" class="text-center">
+    		    <div class="text-center">
+    		     <a class="nav-link" href="{% url 'web:index' %}">
+    			<img class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;" src="{% static 'assets/images/me.jpg'%}" alt="">
+    			</div>
+    			<span class="title spanheader" style ="color:#0058d8;font-family: fantasy;font-size: 150%;">Junior Garcia</span></a>
+    			<span class="tagline " style ="color:#fa9920;font-family: fantasy;font-size: 100%;" <br>A disciplined person</br>
+    			<a href="https://github.com/jungarcode" style ="color:#fa9920;">Jungarcode</a></span>
+    		</h1>
+    	</div>
+	</div>
 
-	<nav class="navbar navbar-default navbar-sticky">
-		<div class="container-fluid">
-			
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-bs-toggle="collapse" data-bs-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-			</div>
-			
-			<div class="navbar-collapse collapse"id="bs-example-navbar-collapse-1">
-				
-				<ul class="nav navbar-nav nav-side ">
-					<li class="{% if request.path == '/'%} active {%endif%}"><a  href="{% url 'web:index'%}">Home</a></li>
-					<li class="{% if request.path == '/about/'%}active{%endif%}"><a href="{% url 'web:about'%}">About</a></li>
-					
-					<li class="{% if request.path == '/portfolio/'%}active{%endif%}"><a href="{% url 'web:portfolio'%}">Portfolio</a></li>
-					<li class="{% if request.path|slice:":6" == '/blog/'%}active{%endif%}"><a href="{% url 'web:blog'%}">Blog</a></li>
-					
-					<!-- <li class="{% if request.path == '/contact/'%}active{%endif%}"><a href="#">Contact</a></li> -->
-				</ul>
-			
-			</div><!--/.nav-collapse -->			
-		</div>	
-	</nav>
+     <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item {% if request.path == '/' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'web:index' %}">Home</a>
+                    </li>
+                    <li class="nav-item {% if request.path == '/about/' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'web:about' %}">About</a>
+                    </li>
+                    <li class="nav-item {% if request.path == '/portfolio/' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'web:portfolio' %}">Portfolio</a>
+                    </li>
+                    <li class="nav-item {% if request.path|slice:":6" == '/blog/' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'web:blog' %}">Blog</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
 </header>
-
 {% load static %}
 
 
 {% block content%}
 
 <main id="main">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <article class="post">
+                    <header class="entry-header mb-4">
+                        <h1 class="entry-title text-center">{{ detail_post.title }}</h1>
+                        <div class="entry-meta text-center text-muted mb-2">
+                            <span class="posted-on">{{ detail_post.author }}</span>
+                        </div>
+                        <div class="entry-meta text-center text-muted">
+                            <span class="posted-on">
+                                <time class="entry-date published" datetime="{{ detail_post.published|date:'Y-m-d' }}">
+                                    {{ detail_post.published|date:"F d, Y" }}
+                                </time>
+                            </span>
+                        </div>
+                    </header>
+                    <div class="entry-content post-content">
+                        <p class="text-center">
+                            <img src="{{ detail_post.image.url }}" alt="" class="img-fluid rounded mb-4">
+                        </p>
+                        <p>{{ detail_post.content|safe }}</p>
+                    </div>
+                </article><!-- #post-## -->
+            </div>
+        </div> <!-- /row post  -->
+    </div>
+</main>
 
-	<div class="container">
-		
-		<div class="row topspace">
+
+		<!-- <div class="row">
 			<div class="col-sm-8 col-sm-offset-2">
-															
- 				<article class="post">
-					<header class="entry-header">
-						<h1 class="entry-title">{{detail_post.title}}</h1>
-						<div class="entry-meta"> 
-							<span class="posted-on">{{detail_post.author}}</span>			
-						</div> 	
- 						<div class="entry-meta"> 
- 							<span class="posted-on"><time class="entry-date published" date="2013-06-17">{{detail_post.created|date}}</time></span>			
- 						</div> 	
-					</header> 
-					<div class="entry-content"> 
-						<p><img alt="" src="{{detail_post.image.url}}"></p>
-						<p>{{detail_post.content|safe}}</p>
-					</div> 
-				</article><!-- #post-## -->
 
-			</div> 
-		</div> <!-- /row post  -->
-
-		<!-- <div class="row"> 
-			<div class="col-sm-8 col-sm-offset-2">
-
-				<div id="comments">	
+				<div id="comments">
 					<h3 class="comments-title">3 Comments</h3>
 					<a href="#comment-form" class="leave-comment">Leave a Comment</a>
-					
+
 					<ol class="comments-list">
 						<li class="comment">
 							<div>
 								<img src="assets/images/avatar_man.png" alt="Avatar" class="avatar">
-												
+
 								<div class="comment-meta">
 									<span class="author"><a href="#">John Doe</a></span>
 									<span class="date"><a href="#">January 22, 2011 at 4:55 pm</a></span>
@@ -119,43 +138,43 @@
 								<li class="comment">
 									<div>
 										<img src="assets/images/avatar_man.png" alt="Avatar" class="avatar">
-																
+
 										<div class="comment-meta">
 											<span class="author"><a href="#">John Doe</a></span>
 											<span class="date"><a href="#">January 22, 2011 at 4:55 pm</a></span>
 											<span class="reply"><a href="#">Reply</a></span>
 										</div>.comment-meta -->
 
-										<!-- <div class="comment-body"> 
+										<!-- <div class="comment-body">
 											Morbi velit eros, sagittis in facilisis non, rhoncus et erat. Nam posuere tristique sem, eu ultricies tortor imperdiet vitae. Curabitur lacinia neque non metus.
 										</div> .comment-body
 									</div>
 								</li>
-							</ul>.children 
+							</ul>.children
 						</li>
 
 						<li class="comment">
 							<div>
 								<img src="assets/images/avatar_woman.png" alt="Avatar" class="avatar">
-								
+
 								<div class="comment-meta">
 									<span class="author"><a href="#">Jonnes</a></span>
 									<span class="date"><a href="#">January 22, 2011 at 4:55 pm</a></span>
 									<span class="reply"><a href="#">Reply</a></span>
-								</div>comment-meta 
+								</div>comment-meta
 
 								<div class="comment-body">
-									Morbi velit eros, sagittis in facilisis non, rhoncus et erat. Nam posuere tristique sem, eu ultricies tortor imperdiet vitae. Curabitur lacinia neque non metus.												</div>.comment-body 
+									Morbi velit eros, sagittis in facilisis non, rhoncus et erat. Nam posuere tristique sem, eu ultricies tortor imperdiet vitae. Curabitur lacinia neque non metus.												</div>.comment-body
 							</div>
 						</li>
 					</ol>
-					
+
 					<div class="clearfix"></div>
 
 					<nav id="comment-nav-below" class="comment-navigation clearfix" role="navigation"><div class="nav-content">
 							<div class="nav-previous">&larr; Older Comments</div>
 							<div class="nav-next">Newer Comments &rarr;</div>
-					</div></nav>#comment-nav-below 
+					</div></nav>#comment-nav-below
 
 
 					<div id="respond">
@@ -187,92 +206,78 @@
   									<button type="submit" class="btn btn-action">Submit</button>
 								</div>
 						</form>
-					</div> /respond 
+					</div> /respond
 				</div>
 			</div>
 		</div> /row comments
 		 <div class="clearfix"></div> -->
 
 	</div>	<!-- /container -->
-	
+
 
 {% endblock%}
 
-{% comment %} <footer id="footer">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3 widget">
-				<h3 class="widget-title">Contact</h3>
-				<div class="widget-body">
-					<p>+234 23 9873237<br>
-						<a href="mailto:#">some.email@somewhere.com</a><br>
-						<br>
-						234 Hidden Pond Road, Ashland City, TN 37015
-					</p>	
-				</div>
-			</div>
+<footer id="footer" class="bg-black text-light py-4">
+    <div class="container">
+        <div class="row">
+            <!-- Sección de contacto -->
+            <div class="col-md-6 col-lg-3 mb-3 text-center text-lg-start">
+                <h5 class="widget-title">Contact</h5>
+                <p>
+                    +1 2142845797<br>
+                    <a href="mailto:jungarcode@gmail.com" class="text-light">jungarcode@gmail.com</a>
+                </p>
+            </div>
 
-			<div class="col-md-3 widget">
-				<h3 class="widget-title">Follow me</h3>
-				<div class="widget-body">
-					<p class="follow-me-icons">
-						<a href=""><i class="fa fa-twitter fa-2"></i></a>
-						<a href=""><i class="fa fa-dribbble fa-2"></i></a>
-						<a href=""><i class="fa fa-github fa-2"></i></a>
-						<a href=""><i class="fa fa-facebook fa-2"></i></a>
-					</p>
-				</div>
-			</div>
+            <!-- Sección de redes sociales -->
+            <div class="col-md-6 col-lg-3 mb-3 text-center text-lg-end">
+                <div class="widget-body d-flex justify-content-center justify-content-lg-end">
+                    <p class="follow-me-icons mb-0">
+                        <a href="https://github.com/jungarcode" target="_blank" class="text-light me-3">
+                            <i class="fab fa-github fa-lg"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/junior-garcia-39578ab3/" target="_blank" class="text-light me-3">
+                            <i class="fab fa-linkedin fa-lg"></i>
+                        </a>
+                        <a href="https://x.com/jungar2806" target="_blank" class="text-light">
+                            <i class="fab fa-twitter fa-lg"></i>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
 
-			<div class="col-md-3 widget">
-				<h3 class="widget-title">Text widget</h3>
-				<div class="widget-body">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, nihil natus explicabo ipsum quia iste aliquid repellat eveniet velit ipsa sunt libero sed aperiam id soluta officia asperiores adipisci maxime!</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, nihil natus explicabo ipsum quia iste aliquid repellat eveniet velit ipsa sunt libero sed aperiam id soluta officia asperiores adipisci maxime!</p>
-				</div>
-			</div>
-
-			<div class="col-md-3 widget">
-				<h3 class="widget-title">Form widget</h3>
-				<div class="widget-body">
-					<p>+234 23 9873237<br>
-						<a href="mailto:#">some.email@somewhere.com</a><br>
-						<br>
-						234 Hidden Pond Road, Ashland City, TN 37015
-					</p>	
-				</div>
-			</div>
-
-		</div> <!-- /row of widgets -->
-	</div>
-</footer> {% endcomment %}
-
-<footer id="underfooter">
-	<div class="container">
-		<div class="row">
-			
-			<div class="col-md-6 widget">
-				<div class="widget-body">
-					<p>Bella Vista Carrollton, Dallas City, Tx </p>
-				</div>
-			</div>
-
-			<div class="col-md-6 widget">
-				<div class="widget-body">
-					<p class="text-right">
-						© 2024 Jungar, Inc. All rights reserved.
-						</p>
-				</div>
-			</div>
-
-		</div> <!-- /row of widgets -->
-	</div>
+        <!-- Underfooter -->
+        <div class="row border-top pt-3 mt-3">
+            <div class="col-md-6 text-center text-md-start">
+                <p>Bella Vista Carrollton, Dallas City, Tx</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <p class="mb-0">
+                    © 2024 Jungar, Inc. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </div>
 </footer>
-
 
 <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="{% static 'assets/js/template.js'%}"></script>
+ <script src="{% static 'assets/js/html5shiv.js'%}"></script>
+<script>
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        const banner = document.getElementById('banner');
+
+        // Verifica si el usuario ha desplazado más allá de la altura del banner
+        if (window.scrollY >= banner.offsetHeight) {
+            navbar.classList.add('fixed-top');
+        } else {
+            navbar.classList.remove('fixed-top');
+        }
+    });
+</script>
 </body>
 </html>

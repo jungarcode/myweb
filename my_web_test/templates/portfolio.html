@@ -4,58 +4,58 @@
 {% block content%}
 
 <main id="main">
-	
-	<div class="container">
-		<div class="row topspace">
-			
-			<div class="col-sm-8 col-sm-offset-2">
-															
-				{% for post in posts %}
-				
- 				<article class="post" style = "background: #e2e2e2; border-radius: 50px;">
-				
-					<header class="entry-header">
- 						<div class="entry-meta"> 
- 							<span class="posted-on"><time class="entry-date published" date="2013-06-17">{{post.created|date:"SHORT_DATE_FORMAT"}}</time></span>			
- 						</div> 
- 						<h1 class="entry-title"><a href="{% url 'web:detail_post' post.slug %}" rel="bookmark">{{post.title}}</a></h1>
-					</header> 
-					<div class="entry-content"> 
-						<p><img alt="" src="{{post.image.url}}"></p>
-						<p>{{post.description|safe}} <a href="{% url 'web:detail_post' post.slug %}" class="more-link">Continue reading&#8230;</a></p>
-						<span class="thumbnail">Author: <em><b>{{post.author}}</b></em> | Category:  <em><b>{% for category in post.categories.all%}
-							<a href="">{{category.name}}</a>
-							{%endfor%}</b></em> </span>
-					</div> 
-					
-				</article><!-- #post-## -->
-				
-	{% endfor %}									
-	
-	<div class="row">
-		<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-			<div class="col-md-6 col-sm-6 col-xs-6 float-left">
-				{% if posts.has_previous%}
-				<div class="clearfix">
-					<a href="?page={{posts.previous_page_number}}{% if request.GET.search%} &q={{request.GET.search}}{% endif %}" class="btn btn-primary float-left">Anterior</a>
-				</div>
-				{%endif%}
-			</div>
-		</div>
-		<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-			<div class="col-md-6 col-sm-6 col-xs-6 float-right">
-				{% if posts.has_next%}
-				<div class="clearfix">
-					<a href="?page={{posts.next_page_number}}{% if request.GET.search%} &q={{request.GET.search}}{% endif %}" class="btn btn-primary float-left">Siguiente</a>
-				</div>
-				{%endif%}
-			</div>
-		</div>
-	</div>
-	
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                {% for post in posts %}
+                    <article class="post bg-custom-light p-4 mb-4 rounded-3">
+                        <header class="entry-header mb-3">
+                            <div class="entry-meta text-muted mb-2">
+                                <span class="posted-on">
+                                    <time class="entry-date published" datetime="{{ post.published|date:'Y-m-d' }}">
+                                        {{ post.published|date:"SHORT_DATE_FORMAT" }}
+                                    </time>
+                                </span>
+                            </div>
+                            <h2 class="entry-title h4">
+                                <a href="{% url 'web:detail_post' post.slug %}" class="text-decoration-none text-dark hover-underline">
+                                    {{ post.title }}
+                                </a>
+                            </h2>
+                        </header>
+                        <div class="entry-content">
+                            <div class="text-center mb-3">
+                                <img src="{{ post.image.url }}" alt="" class="img-fluid rounded">
+                            </div>
+                            <p>{{ post.description|safe }}
+                                <a href="{% url 'web:detail_post' post.slug %}" class="text-decoration-none fw-bold">Continue reading…</a>
+                            </p>
+                            <div class="thumbnail text-muted">
+                                <span>Author: <strong>{{ post.author }}</strong> | Category:
+                                    {% for category in post.categories.all %}
+                                        <a href="#" class="text-decoration-none">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}
+                                    {% endfor %}
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
 
-	</div>	<!-- /container -->
-
+                <!-- Pagination -->
+                <div class="d-flex justify-content-between">
+                    {% if posts.has_previous %}
+                        <a href="?page={{ posts.previous_page_number }}{% if request.GET.search %}&q={{ request.GET.search }}{% endif %}" class="btn btn-primary">Anterior</a>
+                    {% else %}
+                        <div></div>
+                    {% endif %}
+                    {% if posts.has_next %}
+                        <a href="?page={{ posts.next_page_number }}{% if request.GET.search %}&q={{ request.GET.search }}{% endif %}" class="btn btn-primary">Siguiente</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div> <!-- /container -->
 </main>
+
 
 {% endblock %}

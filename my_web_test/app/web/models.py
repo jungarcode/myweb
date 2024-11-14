@@ -1,5 +1,5 @@
 from django.db import models
-#from ckeditor.fields import RichTextField
+from django_ckeditor_5.fields import CKEditor5Field
 from django.utils.timezone import now
 from django.contrib.auth.models import User
 
@@ -25,8 +25,9 @@ class Post(models.Model):
     title = models.CharField(max_length=250, unique=True)
     slug = models.CharField(max_length = 100, blank = True, null = True)
     description = models.CharField(max_length = 300, blank = False, null = False)
-    content = models.CharField(max_length = 100000)
-    published =models.DateTimeField(auto_now=True)
+    # content =models.CharField(max_length = 100000)
+    content = CKEditor5Field(config_name='extends')
+    published =models.DateTimeField(blank=True, null=True)
     image = models.ImageField(upload_to= "blog", null= True , blank= True)
     author = models.ForeignKey(User, on_delete = models.CASCADE)
     state = models.BooleanField(default = True)

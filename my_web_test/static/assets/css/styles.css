@@ -11,6 +11,7 @@ body {
 .topspace {
   margin-top: 40px;
 }
+
 /*********************************************************************
 
 
@@ -109,6 +110,15 @@ body {
   background-color: #ffffff;
   color: #000000;
 }
+
+/*.banner {*/
+    height: 300px; /* Ajusta la altura del banner como prefieras */
+/*    background-color: #f8f9fa;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    text-align: center;*/
+/*}*/
 /****************************************************************************************
 
 
@@ -135,6 +145,12 @@ body {
 .nav-side > li.active > a {
   color: #bd1550;
   text-decoration: underline;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active,
+.navbar-nav li.active >a{
+    text-decoration: underline;
 }
 
 
@@ -271,7 +287,7 @@ a:hover {
 .home #head .title {
   font-size: 49px;
   font-size: 3.0625rem;
-  
+
 }
 .home #head .tagline {
   font-size: 16px;
@@ -566,7 +582,7 @@ img {
 }
 .entry-content {
   margin: 0 0 60px 0;
-  
+
 }
 .entry-content h2 {
   line-height: 1.2;
@@ -574,7 +590,7 @@ img {
   font-size: 1.875rem;
   padding-top: 20px;
   margin-bottom: 20px;
-  
+
 }
 .meta-nav,
 .more-link {
@@ -657,6 +673,43 @@ footer.entry-meta .meta-in {
 .page-header .page-title {
   margin-top: 0;
   margin-bottom: 30px;
+}
+
+.img-container {
+    width: 100%;
+    height: 200px; /* Puedes ajustar la altura según prefieras */
+    position: relative;
+}
+.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.img-container:hover .cover {
+    opacity: 1;
+}
+.more {
+    font-size: 1.25rem;
+        font-weight: bold;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* dentro de post los link son responsive no genera  scroll */
+.post-content a {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    display: inline-block; /* Para que se ajuste dentro del contenedor */
 }
 
 
@@ -805,6 +858,11 @@ footer.entry-meta .meta-in {
   margin: 0 10px 0 0;
 }
 
+  /* color fondo post*/
+.bg-custom-light {
+    background-color: #f4f6f6  ; /* Gris muy claro */
+}
+
 
 
 
@@ -816,3 +874,29 @@ footer.entry-meta .meta-in {
   }
 }
 
+@media (max-width: 576px) {
+    .img-container {
+        height: 200px; /* Puedes reducir la altura en dispositivos móviles */
+    }
+
+    .more {
+        font-size: 1rem; /* Reducir el tamaño del texto en pantallas pequeñas */
+    }
+
+}
+  /* Forzar centrado en pantallas menores a 571 px */
+ @media (max-width: 350px) {
+        .d-flex.justify-content-center {
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+        .btn-block {
+            width: 100%;
+            text-align: center;
+        }
+    }
